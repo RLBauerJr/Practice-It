@@ -1,0 +1,60 @@
+// Why does a method to swap two array elements work correctly when a method to swap two integer values does not? 
+
+Answer: Unlike integers, arrays are objects and use reference semantics. 
+
+Explanation: 
+In Java, when you pass an array as an argument to a method, you are actually passing a reference to the array, 
+not a copy of the array itself. This means that any changes made to the array within the method will be reflected in the original array.
+
+On the other hand, when you pass a primitive type like an int as an argument to a method, you are passing a copy of the value,
+not a reference to the original value. This means that any changes made to the value within the method will not be reflected in the original value.
+
+Here is an example to illustrate the difference:
+
+public class Main {
+    public static void main(String[] args) {
+        // Declare and initialize an array of integers
+        int[] arr = {1, 2, 3};
+
+        // Print the original array
+        System.out.println("Original array: " + Arrays.toString(arr)); // Outputs "[1, 2, 3]"
+
+        // Call the swapArrayElements method to swap the elements at index 0 and 2
+        swapArrayElements(arr, 0, 2);
+
+        // Print the array after calling the swapArrayElements method
+        System.out.println("Array after calling swapArrayElements: " + Arrays.toString(arr)); // Outputs "[3, 2, 1]"
+
+        // Declare and initialize two integer variables
+        int a = 10;
+        int b = 20;
+
+        // Print the original values of a and b
+        System.out.println("Original values: a = " + a + ", b = " + b); // Outputs "Original values: a = 10, b = 20"
+
+        // Call the swapIntValues method to swap the values of a and b
+        swapIntValues(a, b);
+
+        // Print the values of a and b after calling the swapIntValues method
+        System.out.println("Values after calling swapIntValues: a = " + a + ", b = " + b); // Outputs "Values after calling swapIntValues: a = 10, b = 20"
+    }
+
+    public static void swapArrayElements(int[] arr, int i, int j) {
+        // Swap the elements at index i and j in the array
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+
+    public static void swapIntValues(int a, int b) {
+        // Swap the values of a and b
+        int temp = a;
+        a = b;
+        b = temp;
+    }
+}
+
+In the example above, the swapArrayElements method correctly swaps the elements at index 0 and 2 in the array,
+because it is operating on a reference to the original array. However, the swapIntValues method does not correctly swap the values of a and b,
+because it is operating on copies of the original values.
+
