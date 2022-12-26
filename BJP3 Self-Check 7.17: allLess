@@ -1,0 +1,21 @@
+//Write a method called allLess that accepts two arrays of integers and returns true if each element in the first array is less than the element at 
+//the same index in the second array. Your method should return false if the arrays are not the same length. For example, if the two arrays passed are 
+//{45, 20, 300} and {50, 41, 600}, your method should return true. If the arrays are not the same length, you should always return false. 
+
+public static boolean allLess(int[] arr1, int[] arr2) {
+    // Check if the two arrays have the same length
+    if (arr1.length != arr2.length) {
+        // If the arrays have different lengths, return false
+        return false;
+    }
+    // Iterate over each element in the arrays
+    for (int i = 0; i < arr1.length; i++) {
+        // Check if the element at index i in arr1 is less than the element at index i in arr2
+        if (arr1[i] >= arr2[i]) {
+            // If the element at index i in arr1 is not less than the element at index i in arr2, return false
+            return false;
+        }
+    }
+    // If the loop completes and all elements in arr1 are less than the corresponding elements in arr2, return true
+    return true;
+}
