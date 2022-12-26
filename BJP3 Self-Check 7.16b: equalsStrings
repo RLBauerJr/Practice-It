@@ -1,0 +1,20 @@
+//Write a method called equals that takes in two string arrays and returns true if they are equal; 
+//that is, if both arrays have the same length and contain equivalent string values at each index. 
+
+public static boolean equals(String[] arr1, String[] arr2) {
+    // Check if the two arrays have the same length
+    if (arr1.length != arr2.length) {
+        // If the arrays have different lengths, they cannot be equal
+        return false;
+    }
+    // Iterate over each element in the arrays
+    for (int i = 0; i < arr1.length; i++) {
+        // Check if the element at index i in arr1 is equal to the element at index i in arr2
+        if (!arr1[i].equals(arr2[i])) {
+            // If the elements are not equal, the arrays are not equal
+            return false;
+        }
+    }
+    // If the loop completes and all elements are equal, the arrays are equal
+    return true;
+}
